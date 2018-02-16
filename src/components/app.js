@@ -1,11 +1,15 @@
 import React from "react";
 import LinelosTable from "./linelosTable";
 
-const App = () => (
+const App = ({ transactions, fetchDataEvent }) => (
   <section>
     <h1>Linelos</h1>
-    <button>Sincronizar</button>
-    <LinelosTable />
+    <button onClick={fetchDataEvent}>Consultar transacciones</button>
+    {transactions.length > 0 ? (
+      <LinelosTable transactions={transactions} />
+    ) : (
+      <p>No hay datos</p>
+    )}
   </section>
 );
 

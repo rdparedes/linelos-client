@@ -1,7 +1,7 @@
 import React from "react";
-import Record from "./record";
+import Transaction from "./transaction";
 
-const LinelosTable = ({ records }) => (
+const LinelosTable = ({ transactions }) => (
   <table>
     <thead>
       <tr>
@@ -10,7 +10,9 @@ const LinelosTable = ({ records }) => (
         <th>Fecha de la transacción</th>
       </tr>
     </thead>
-    <tbody>{records.map(record => <Record />)}</tbody>
+    <tbody>
+      {transactions.map(transaction => <Transaction key={transaction.fecha} />)}
+    </tbody>
   </table>
 );
 
