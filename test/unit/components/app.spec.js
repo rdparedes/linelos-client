@@ -1,8 +1,8 @@
 import { shallow, configure } from "enzyme";
 import React from "react";
 import Adapter from "enzyme-adapter-react-16";
-import App from "../../src/components/app";
-import LinelosTable from "../../src/components/linelosTable";
+import App from "../../../src/components/app";
+import LinelosTable from "../../../src/components/linelosTable";
 
 configure({ adapter: new Adapter() });
 

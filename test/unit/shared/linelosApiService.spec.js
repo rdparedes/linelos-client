@@ -1,6 +1,6 @@
 import axios from "axios";
 import MockAdapter from "axios-mock-adapter";
-import { getTransactions } from "../../src/shared/linelosApiService";
+import { getTransactions } from "../../../src/shared/linelosApiService";
 
 describe("linelosApiService", () => {
   let axiosMock = new MockAdapter(axios);
