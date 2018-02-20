@@ -11,7 +11,14 @@ const LinelosTable = ({ transactions }) => (
       </tr>
     </thead>
     <tbody>
-      {transactions.map(transaction => <Transaction key={transaction.fecha} />)}
+      {transactions.map(transaction => (
+        <Transaction
+          key={transaction.fecha}
+          tienda={transaction.tienda}
+          monto={transaction.monto}
+          fecha={transaction.fecha}
+        />
+      ))}
     </tbody>
   </table>
 );
