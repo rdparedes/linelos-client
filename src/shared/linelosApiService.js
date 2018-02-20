@@ -1,18 +1,33 @@
 import axios from "axios";
+import { redirect } from "./utils";
 
 const apiUrl = "http://ec2-18-221-97-203.us-east-2.compute.amazonaws.com";
 const gmailSearchQuery =
   "from:(notificaciones@infopacificard.com.ec)%20pacificard:%20consumos";
+const loginMessage = `Primero debes iniciar sesión en Google.\n
+Pulsa Aceptar para ir a la pantalla de inicio de sesión o Cancelar para retroceder`;
 
 const getTransactions = () =>
   axios
-    .get(`${apiUrl}/transactions`, { params: { query: gmailSearchQuery } })
+    .get(`${apiUrl}/transactions`, {
+      params: { query: gmailSearchQuery },
+      headers: { "Access-Control-Allow-Origin": "*" }
+    })
     .then(response => response.data.transacciones)
     .catch(error => {
-      console.error(
-        `An error occured while trying to fetch data from Linelos Api:\n${error}`
-      );
-      throw error;
+      if (
+        error.response &&
+        error.response.status === 403 &&
+        error.response.data.location &&
+        confirm(loginMessage)
+      ) {
+        redirect(error.response.data.location);
+      } else {
+        console.error(
+          `An error occured while trying to fetch data from Linelos Api:\n${error}`
+        );
+        throw error;
+      }
     });
 
 export { getTransactions };
