@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "webpack-dev-server",
-    "build": "webpack",
+    "build": "ENVIRONMENT=production webpack",
     "test": "jest"
   },
   "devDependencies": {

@@ -1,15 +1,14 @@
+import { linelosApiUrl } from "../../app.config";
 import axios from "axios";
 import { redirect } from "./utils";
 
-const apiUrl = "http://ec2-18-221-97-203.us-east-2.compute.amazonaws.com";
-const gmailSearchQuery =
-  "from:(notificaciones@infopacificard.com.ec)%20pacificard:%20consumos";
+const gmailSearchQuery = "from:(notificaciones@infopacificard.com.ec)%20pacificard:%20consumos";
 const loginMessage = `Primero debes iniciar sesión en Google.\n
 Pulsa Aceptar para ir a la pantalla de inicio de sesión o Cancelar para retroceder`;
 
 const getTransactions = () =>
   axios
-    .get(`${apiUrl}/transactions`, {
+    .get(`${linelosApiUrl}/transactions`, {
       params: { query: gmailSearchQuery },
       headers: { "Access-Control-Allow-Origin": "*" }
     })
@@ -23,9 +22,7 @@ const getTransactions = () =>
       ) {
         redirect(error.response.data.location);
       } else {
-        console.error(
-          `An error occured while trying to fetch data from Linelos Api:\n${error}`
-        );
+        console.error(`An error occured while trying to fetch data from Linelos Api:\n${error}`);
         throw error;
       }
     });
