@@ -8,7 +8,7 @@
     "react-dom": "^16.2.0"
   },
   "scripts": {
-    "start": "webpack-dev-server --env.production=false",
+    "start": "webpack-dev-server --env.production=false --port 9090",
     "build": "webpack --env.production",
     "test": "jest"
   },
