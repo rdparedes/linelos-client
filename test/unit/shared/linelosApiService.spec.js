@@ -9,6 +9,10 @@ import { redirect } from "../../../src/shared/utils";
 describe("linelosApiService", () => {
   let axiosMock = new MockAdapter(axios);
 
+  beforeAll(() => {
+    global.window.confirm = () => true;
+  });
+
   beforeEach(() => {
     axiosMock.reset();
   });
@@ -16,14 +20,12 @@ describe("linelosApiService", () => {
   it("returns a list of transactions when a request to linelos api is successful", done => {
     const fakeTransactions = [
       {
-        tienda: "STREAT BURGER",
-        monto: 31.52,
-        fecha: "2018-02-09T16:50:00Z"
+        tienda: "SOME STORE",
+        monto: 1.52,
+        fecha: "2018"
       }
     ];
-    axiosMock
-      .onGet(/.*transactions.*/)
-      .reply(200, { transacciones: fakeTransactions });
+    axiosMock.onGet(/.*transactions.*/).reply(200, { transacciones: fakeTransactions });
     getTransactions().then(r => {
       expect(r).toEqual(fakeTransactions);
       done();
