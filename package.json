@@ -8,8 +8,8 @@
     "react-dom": "^16.2.0"
   },
   "scripts": {
-    "start": "webpack-dev-server",
-    "build": "ENVIRONMENT=production webpack",
+    "start": "webpack-dev-server --env.production=false",
+    "build": "webpack --env.production",
     "test": "jest"
   },
   "devDependencies": {

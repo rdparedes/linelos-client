@@ -1,7 +1,8 @@
+const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 
-module.exports = {
+module.exports = env => ({
   entry: ["babel-polyfill", path.resolve(__dirname, "src", "index.js")],
   devtool: "cheap-source-map",
   output: {
@@ -20,6 +21,11 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: `${__dirname}/public/index.html`
+    }),
+    new webpack.DefinePlugin({
+      "process.env": {
+        PRODUCTION: env.production
+      }
     })
   ]
-};
+});
