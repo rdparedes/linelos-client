@@ -9,7 +9,8 @@
   },
   "scripts": {
     "start": "webpack-dev-server --env.production=false --port 9090",
-    "build": "webpack --env.production",
+    "build:prod": "webpack --env.production",
+    "build": "webpack --env.production=false",
     "test": "jest"
   },
   "devDependencies": {
