@@ -10,7 +10,8 @@ const getTransactions = () =>
   axios
     .get(`${linelosApiUrl}/transactions`, {
       params: { query: gmailSearchQuery },
-      headers: { "Access-Control-Allow-Origin": "*" }
+      headers: { "Access-Control-Allow-Origin": "*" },
+      withCredentials: true
     })
     .then(response => response.data.transacciones)
     .catch(error => {
