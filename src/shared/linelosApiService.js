@@ -2,7 +2,7 @@ import { linelosApiUrl } from "../../app.config";
 import axios from "axios";
 import { redirect } from "./utils";
 
-const gmailSearchQuery = "from:(notificaciones@infopacificard.com.ec)%20pacificard:%20consumos";
+const gmailSearchQuery = "from:(notificaciones@infopacificard.com.ec) pacificard: consumos";
 const loginMessage = `Primero debes iniciar sesión en Google.\n
 Pulsa Aceptar para ir a la pantalla de inicio de sesión o Cancelar para retroceder`;
 
