@@ -1,0 +1,19 @@
+{
+  "transacciones": [
+    {
+      "tienda": "COSITA 1",
+      "monto": 0.99,
+      "fecha": "2018-03-19T23:05:00Z"
+    },
+    {
+      "tienda": "COSITA 2",
+      "monto": 3,
+      "fecha": "2018-03-14T15:15:00Z"
+    },
+    {
+      "tienda": "COSITA 3",
+      "monto": 1.5,
+      "fecha": "2018-03-12T18:44:00Z"
+    }
+  ]
+}

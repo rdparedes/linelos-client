@@ -5,10 +5,12 @@
   "dependencies": {
     "axios": "^0.17.1",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "stubby": "^4.0.0"
   },
   "scripts": {
-    "start": "webpack-dev-server --env.production=false --port 9090",
+    "start": "npm run stubby & webpack-dev-server --env.production=false --port 9090",
+    "stubby": "stubby -s 3478 --watch --data test/stubs/stubby.json",
     "build:prod": "webpack --env.production",
     "build": "webpack --env.production=false",
     "test": "jest"
